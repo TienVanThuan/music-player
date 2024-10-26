@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="shortcut icon" href="assets/img/favicon.ico" type="image/x-icon">
+  <title>Music Player</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+  <div class="app">
+    <div class="dashboard">
+      <div class="dashboard-thumbnail">
+        <div class="dashboard-thumbnail-img">
+
+        </div>
+      </div>
+      <h1 class="dashboard-title">Name song</h1>
+      <div class="progress-bar">
+        <input type="range" class="progress" name="progress" id="progress">
+      </div>
+      <div class="audio-display"></div>
+      <div class="time-display">
+        <span class="current-time">00:00</span>
+        <span class="total-time">00:00</span>
+      </div>
+      <div class="controls1">
+        <button class="prev-track"><i class="fa-solid fa-backward"></i></button>
+        <button class="play-pause"><i class="fa-solid fa-play"></i></button>
+        <button class="next-track"><i class="fa-solid fa-forward"></i></button>
+      </div>
+      <ul class="controls2">
+        <li class="controls2-item"><button class="controls2-repeat"><i class="fa-solid fa-repeat"></i></button></li>
+        <li class="controls2-item"><button class="controls2-timer"><i class="fa-regular fa-clock"></i></button></li>
+        <li class="controls2-item"><button class="controls2-shuffle"><i class="fa-solid fa-shuffle"></i></button></li>
+        <li class="controls2-item"><button class="controls2-shuffle"><i class="fa-regular fa-heart"></i></li>
+      </ul>
+    </div>
+
+    <div class="player-music">
+      <ul class="player-music-list"></ul>
+    </div>
+  </div>
+</body>
+
+<script src="assets/js/functions.js"></script>
+</html>
