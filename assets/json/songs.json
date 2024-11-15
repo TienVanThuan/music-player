@@ -28,5 +28,36 @@
     "single" : "Hà Anh Tuấn",
     "path" : "assets/media/ThanhPhoSuongSeeSingShare2-HaAnhTuan.mp3",
     "image" : "assets/img/music-thumb/thanhphosuong-thumb.jpg"
+  },
+
+  {
+    "title" : "Trời Vẫn Còn Xanh Như Em Còn Anh",
+    "single" : "Quốc Thiên",
+    "path" : "assets/media/TroiVanConXanhEmVanConAnh-QuocThien.mp3",
+    "image" : "assets/img/music-thumb/troivanconxanhemvanconanh-thumb.jpg"
+  },
+  {
+    "title" : "Phố Mùa Đông",
+    "single" : "Hà Anh Tuấn",
+    "path" : "assets/media/PhoMuaDongSEESINGSHARE2-HaAnhTuan.mp3",
+    "image" : "assets/img/music-thumb/phomuadong-thumb.jpg"
+  },
+  {
+    "title" : "Tháng Mấy Em Nhớ Anh",
+    "single" : "Hà Anh Tuấn",
+    "path" : "assets/media/ThangMayEmNhoAnh-HaAnhTuan.mp3",
+    "image" : "assets/img/music-thumb/thangmayemnhoanh-thumb.jpg"
+  },
+  {
+    "title" : "Tháng Tư Là Lời Nói Dối Của Em",
+    "single" : "Hà Anh Tuấn",
+    "path" : "assets/media/ThangTuLaLoiNoiDoiCuaEm-HaAnhTuan.mp3",
+    "image" : "assets/img/music-thumb/thangtulaloinoidoicuaem-thumb.jpg"
+  },
+  {
+    "title" : "Thành Phố Sương",
+    "single" : "Hà Anh Tuấn",
+    "path" : "assets/media/ThanhPhoSuongSeeSingShare2-HaAnhTuan.mp3",
+    "image" : "assets/img/music-thumb/thanhphosuong-thumb.jpg"
   }
 ]

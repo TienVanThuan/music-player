@@ -42,7 +42,7 @@ body {
         border-radius: 100%;
         width: 200px;
         margin: 0 auto;
-        transition: all 0.2s ease-in-out;
+        transition: all 0.3s ease-in-out;
         overflow: hidden;
 
         &-img {
@@ -64,7 +64,7 @@ body {
         margin: 8px 10px 20px;
         font-size: 1.6rem;
         min-height: 68px;
-        transition: all 0.2s ease-in-out;
+        transition: all 0.3s ease-in-out;
       }
 
       .progress-bar {
@@ -97,6 +97,10 @@ body {
           cursor: pointer;
           font-size: 2rem;
           margin: 0 20px;
+        
+          &.play-toggle {
+
+          }
         }
       }
 
@@ -178,18 +182,37 @@ body {
             font-size: 0.8rem;
             margin-top: 2px;
           }
+        }
+      }
+    }
 
-          .play-pause {
-            position: absolute;
-            cursor: pointer;
-            font-size: 1rem;
-            color: #fff;
-            background: transparent;
-            border: 0;
-            right: 20px;
-            top: 50%;
-            transform: translateY(-50%);
-          }
+    .c-btn-play {
+      position: relative;
+      cursor: pointer;
+      font-size: 1rem;
+      color: #fff;
+      background: transparent;
+      border: 0;
+      width: 28px;
+      height: 28px;
+
+      &::before {
+        content: "\f04b";
+        position: absolute;
+        display: inline-block;
+        color: #000;
+        top: 50%;
+        font-size: 2rem;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        font-family: 'Font Awesome 5 Free';
+        font-weight: 900;
+        transition: all 0.3s ease-in-out;
+      }
+
+      &.is-playing {
+        &::before {
+          content: "\f04c";
         }
       }
     }
