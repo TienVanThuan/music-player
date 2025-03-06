@@ -5,6 +5,11 @@ const nameSong = $('.dashboard-title');
 const thumbnailSong = $('.dashboard-thumbnail-img img');
 const audioSong = $('.audio-display audio');
 const playButton = $('.js-toggle-play');
+const progress = $('.progress');
+const prevSongBtn = $('.prev-track');
+const nextSongBtn = $('.next-track');
+const currentTimeText = $('.time-display .current-time');
+const totalTimeText = $('.time-display .total-time');
 
 const app = {
   currentIndex: 0,
@@ -48,8 +53,19 @@ const app = {
     })
   },
   handleEvens: function () {
+    const _this = this
     const thumbnail = $('.dashboard-thumbnail');
     const thumbnailWidth = thumbnail.offsetWidth;
+
+    const thumbnailAnimation = thumbnail.animate([{
+      transform: 'rotate(360deg)'
+    }], {
+      duration: 30000,
+      iterations: Infinity
+    });
+
+    thumbnailAnimation.pause();
+
 
     document.onscroll = function() {
       const scrollTop = window.scrollY || document.documentElement.scrollTop;
@@ -59,23 +75,48 @@ const app = {
       thumbnail.style.opacity = newThumbnailWidth / thumbnailWidth;
     };
 
-    playButton.addEventListener('click', function() {
-      if(this.isPlaying) {
-        this.isPlaying = false;
-        audioSong.pause();
-        playButton.classList.remove('is-playing');
+    playButton.onclick = function() {
+      if(_this.isPlaying) {
+        _this.isPlaying = false;
+        pauseSong()
       } else {
-        this.isPlaying = true;
-        audioSong.play();
-        playButton.classList.add('is-playing');
+        _this.isPlaying = true;
+        playSong();
       }
-    });
+    };
 
-    if(playButton.classList.contains('is-playing')) {
-      playButton.addEventListener('click', function() {
-        audioSong.pause();
-        playButton.classList.remove('is-playing');
-      });
+    audioSong.ontimeupdate = function() {
+      if(audioSong.duration) {
+        const progressCurrent = Math.floor( audioSong.currentTime / audioSong.duration * 100);
+        progress.value = progressCurrent;
+      }
+    };
+
+    progress.onchange = function(e) {
+      const seekTime = audioSong.duration / 100 * e.target.value
+      audioSong.currentTime = seekTime;
+    }
+
+    nextSongBtn.onclick = function() {
+      _this.nextSong();
+      playSong();
+    }
+
+    prevSongBtn.onclick = function() {
+      _this.prevSong();
+      playSong();
+    }
+
+    function playSong() {
+      audioSong.play();
+      playButton.classList.add('is-playing');
+      thumbnailAnimation.play();
+    }
+
+    function pauseSong() {
+      audioSong.pause();
+      playButton.classList.remove('is-playing');
+      thumbnailAnimation.pause();
     }
   },
   loadCurrentSong: function () {
@@ -83,10 +124,31 @@ const app = {
     thumbnailSong.src = this.currentSong.image;
     audioSong.src = this.currentSong.path;
   },
+  prevSong: function () {
+    this.currentIndex--;
+    if(this.currentIndex < 0) {
+      this.currentIndex = this.songs.length - 1;
+    }
+    this.loadCurrentSong();
+  },
+  nextSong: function () {
+    this.currentIndex++;
+    if(this.currentIndex >= this.songs.length) {
+      this.currentIndex = 0;
+    }
+    this.loadCurrentSong();
+  },
+  handleTimeSong: function() {
+    setTimeout(function() {
+      let currentTimeSong = (audioSong.duration / 60).toFixed(2);
+      totalTimeText.innerHTML = currentTimeSong;
+    }, 10)
+  },
   start: function () {
     this.init();
     this.defineProperties();
     this.handleEvens();
+    this.handleTimeSong();
     this.render();
   },
 }
